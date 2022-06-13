@@ -22,6 +22,7 @@ namespace dotNET_Z3
     {
         public MainWindow()
         {
+            DataContext = new Model();
             InitializeComponent();
         }
 
