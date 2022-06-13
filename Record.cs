@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace dotNET_Z3
 {
-    class Record : INotifyPropertyChanged
+    public class Record : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         readonly static Dictionary<string, string[]> bindedRecord

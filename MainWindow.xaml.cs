@@ -20,6 +20,7 @@ namespace dotNET_Z3
     /// </summary>
     public partial class MainWindow : Window
     {
+        Model model = new Model();
         public MainWindow()
         {
             DataContext = new Model();
@@ -28,12 +29,18 @@ namespace dotNET_Z3
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            Record newRecord = model.AddNewRecord();
+            ListBox recordsList = (ListBox)this.FindName("ListaDanych");
+            recordsList.ItemsSource = model.Records;
+            new DetailsWindow(newRecord).Show();
         }
 
         private void Details_Click(object sender, RoutedEventArgs e)
         {
-
+            ListBox recordsList = (ListBox)this.FindName("ListaDanych");
+            Record whatRecord = (Record)recordsList.SelectedItem;
+            if (whatRecord != null)
+                (new DetailsWindow(whatRecord)).Show();
         }
     }
 }
